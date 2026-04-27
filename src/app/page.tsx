@@ -433,6 +433,10 @@ export default function Home() {
                   <BookOpen className="w-4 h-4 mr-2" />
                   知识中心
                 </button>
+                <button className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Agent跑分
+                </button>
               </div>
             </div>
           </div>
