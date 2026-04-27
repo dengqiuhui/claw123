@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { User, Download, Sparkles, ChevronRight, ArrowLeft, CheckCircle2, LayoutDashboard, BookOpen, Layers, ExternalLink, Users } from "lucide-react";
+import { User, Download, Sparkles, ChevronRight, ArrowLeft, CheckCircle2, LayoutDashboard, BookOpen, Layers, ExternalLink, Users, Clock, FileText } from "lucide-react";
 
 type UserType = "new" | "installed" | null;
 type FlowStep = "identity" | "comparison" | "detail" | "skillhub";
@@ -168,6 +168,74 @@ const openClawClients: OpenClawClient[] = [
     features: ["随身携带", "触控优化", "离线可用", "推送通知"],
     icon: "📱",
     color: "bg-purple-600",
+  },
+];
+
+interface TutorialArticle {
+  id: string;
+  hour: number;
+  title: string;
+  description: string;
+  category: string;
+  icon: string;
+}
+
+const tutorialArticles: TutorialArticle[] = [
+  {
+    id: "hour-1",
+    hour: 1,
+    title: "第一个小时「选择最适合自己的小龙虾智能体」",
+    description: "在这篇文章给用户列举头部6家（Qclaw、原生Openclaw、Workbuddy、QwenPaw、Copaw、Aekclaw）小龙虾的差异，让用户做出适合自己的选择",
+    category: "新手入门",
+    icon: "🎯",
+  },
+  {
+    id: "hour-2",
+    hour: 2,
+    title: "第二个小时「安装与首次启动」",
+    description: "手把手教你完成选定的小龙虾智能体的安装过程，熟悉首次启动的界面和基础设置",
+    category: "新手入门",
+    icon: "📦",
+  },
+  {
+    id: "hour-3",
+    hour: 3,
+    title: "第三个小时「绑定即时通讯工具」",
+    description: "将你的微信、企业微信、飞书、钉钉等 IM 工具与小龙虾连接，实现随时随地发指令",
+    category: "新手入门",
+    icon: "💬",
+  },
+  {
+    id: "hour-4",
+    hour: 4,
+    title: "第四个小时「完成第一个任务」",
+    description: "通过实际案例教你如何给小龙虾下达第一个任务，体验 AI 帮你干活的魅力",
+    category: "新手入门",
+    icon: "🚀",
+  },
+  {
+    id: "hour-5",
+    hour: 5,
+    title: "第五个小时「配置记忆与偏好」",
+    description: "让小龙虾学习你的工作习惯和偏好，建立个人知识库，越用越懂你",
+    category: "新手入门",
+    icon: "🧠",
+  },
+  {
+    id: "hour-6",
+    hour: 6,
+    title: "第六个小时「安装第一个技能」",
+    description: "从 SkillHub 安装你的第一个技能，让小龙虾的能力得到扩展",
+    category: "新手入门",
+    icon: "⚡",
+  },
+  {
+    id: "hour-7",
+    hour: 7,
+    title: "恭喜毕业「成为小龙虾玩家」",
+    description: "回顾六小时学习成果，开启你的 AI 智能体之旅，获得更多进阶技巧",
+    category: "新手入门",
+    icon: "🏆",
   },
 ];
 
@@ -382,7 +450,10 @@ export default function Home() {
             </div>
 
             <div className="mt-16">
-              <h3 className="text-xl font-semibold mb-6 text-center">OpenClaw 部署客户端</h3>
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold mb-2">OpenClaw 部署客户端</h3>
+                <p className="text-gray-500 text-base">阿里、腾讯、智谱、火山各家小龙虾随意选择</p>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {deploymentProducts.map((product) => (
                   <a
@@ -410,6 +481,39 @@ export default function Home() {
                       <p className="text-gray-500 text-xs leading-relaxed">{product.description}</p>
                     </div>
                   </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold mb-2">新手入门</h3>
+                <p className="text-gray-500 text-base">7小时成为小龙虾高手</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {tutorialArticles.map((article) => (
+                  <div
+                    key={article.id}
+                    className="dark-surface dark-surface-hover rounded-xl p-5 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center mr-3">
+                        <span className="text-xl">{article.icon}</span>
+                      </div>
+                      <div className="flex items-center text-violet-400 text-xs">
+                        <Clock className="w-3 h-3 mr-1" />
+                        <span>第 {article.hour} 小时</span>
+                      </div>
+                    </div>
+                    <h4 className="text-base font-medium mb-2 text-white group-hover:text-violet-300 transition-colors">
+                      {article.title}
+                    </h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">{article.description}</p>
+                    <div className="mt-4 flex items-center text-violet-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>阅读文章</span>
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
