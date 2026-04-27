@@ -266,9 +266,53 @@ export default function Home() {
             真正能替你做事的 AI <br />
             清理收件箱、发送邮件、管理日历、为你办理值机
           </p>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
+            <button
+              onClick={() => scrollToSection("tutorials")}
+              className="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+            >
+              <div className="flex items-center mb-5">
+                <div className="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mr-5">
+                  <Sparkles className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold">新手用户</h3>
+                  <p className="text-sm text-gray-500">刚刚接触 OpenClaw</p>
+                </div>
+              </div>
+              <p className="text-gray-400 mb-5 text-base leading-relaxed">
+                浏览热门 OpenClaw 客户端，了解不同版本的功能对比，选择最适合您的版本开始体验。
+              </p>
+              <div className="flex items-center text-violet-400 font-medium">
+                开始探索
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </div>
+            </button>
+            <button
+              onClick={() => scrollToSection("skillhub")}
+              className="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+            >
+              <div className="flex items-center mb-5">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mr-5">
+                  <User className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold">已安装用户</h3>
+                  <p className="text-sm text-gray-500">已经在使用 OpenClaw</p>
+                </div>
+              </div>
+              <p className="text-gray-400 mb-5 text-base leading-relaxed">
+                直接进入 SkillHub，浏览和安装各种智能技能，提升您的工作效率和创作能力。
+              </p>
+              <div className="flex items-center text-green-400 font-medium">
+                进入 SkillHub
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </div>
+            </button>
+          </div>
         </section>
 
-        <section className="mt-16">
+        <section className="mt-8">
           <div className="text-center mb-6 h-[224px] flex flex-col justify-center">
             <h2 className="section-title mb-2">OpenClaw 部署客户端</h2>
             <p className="section-description">阿里、腾讯、智谱、火山各家小龙虾随意选择</p>

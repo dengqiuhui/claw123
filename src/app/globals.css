@@ -75,3 +75,62 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: normal;
   color: #999494;
 }
+
+.article-card {
+  height: 200px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.article-card h3 {
+  font-family: "PingFang SC", "Microsoft YaHei", 微软雅黑, "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 26px;
+  line-height: 21px;
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0;
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-60px) rotate(720deg); opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.confetti-particle {
+  animation: confetti 2s ease-out forwards;
+}
+
+.confetti-container {
+  position: relative;
+}
+
+.milestone-card {
+  position: relative;
+  overflow: visible;
+}
+
+.milestone-card::before {
+  content: '🎊';
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 48px;
+  animation: bounce 1s ease-in-out infinite;
+  z-index: 10;
+}
+
+.milestone-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  margin-bottom: 8px;
+}
