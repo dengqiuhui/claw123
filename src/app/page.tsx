@@ -142,6 +142,7 @@ interface Skill {
   description: string;
   category: string;
   icon: string;
+  downloads: number;
 }
 
 const openClawClients: OpenClawClient[] = [
@@ -243,30 +244,98 @@ const skills: Skill[] = [
   {
     id: "skill-1",
     name: "代码助手",
-    description: "智能代码补全和审查",
+    description: "智能代码补全、审查与优化建议",
     category: "开发",
     icon: "⌨️",
+    downloads: 856,
   },
   {
     id: "skill-2",
     name: "文档生成",
-    description: "自动生成项目文档",
+    description: "自动生成 API 文档、技术文档与报告",
     category: "工具",
     icon: "📝",
+    downloads: 723,
   },
   {
     id: "skill-3",
     name: "数据分析",
-    description: "快速分析数据趋势",
+    description: "快速分析数据趋势，生成可视化图表",
     category: "数据",
     icon: "📊",
+    downloads: 634,
   },
   {
     id: "skill-4",
     name: "翻译助手",
-    description: "多语言翻译支持",
+    description: "多语言翻译，支持中英日韩等20+语言",
     category: "语言",
     icon: "🌍",
+    downloads: 589,
+  },
+  {
+    id: "skill-5",
+    name: "会议纪要",
+    description: "自动整理会议内容，提炼关键决策与待办",
+    category: "办公",
+    icon: "📋",
+    downloads: 478,
+  },
+  {
+    id: "skill-6",
+    name: "周报生成",
+    description: "根据工作内容自动生成周报总结",
+    category: "办公",
+    icon: "📅",
+    downloads: 412,
+  },
+  {
+    id: "skill-7",
+    name: "邮件助手",
+    description: "智能撰写、回复和整理邮件",
+    category: "办公",
+    icon: "📧",
+    downloads: 367,
+  },
+  {
+    id: "skill-8",
+    name: "网页搜索",
+    description: "实时搜索网络信息，整理摘要答案",
+    category: "工具",
+    icon: "🔍",
+    downloads: 534,
+  },
+  {
+    id: "skill-9",
+    name: "文件整理",
+    description: "自动分类整理文件夹，清理冗余文件",
+    category: "工具",
+    icon: "📁",
+    downloads: 298,
+  },
+  {
+    id: "skill-10",
+    name: "PPT 制作",
+    description: "根据内容自动生成精美 PPT 演示文稿",
+    category: "创作",
+    icon: "🎨",
+    downloads: 445,
+  },
+  {
+    id: "skill-11",
+    name: "视频剪辑",
+    description: "智能剪辑视频，自动生成字幕",
+    category: "创作",
+    icon: "🎬",
+    downloads: 312,
+  },
+  {
+    id: "skill-12",
+    name: "知识问答",
+    description: "基于知识库回答专业领域问题",
+    category: "工具",
+    icon: "💡",
+    downloads: 423,
   },
 ];
 
@@ -512,6 +581,38 @@ export default function Home() {
                     <div className="mt-4 flex items-center text-violet-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                       <span>阅读文章</span>
                       <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold mb-2">SkillHub</h3>
+                <p className="text-gray-500 text-base">安装技能扩展小龙虾的能力</p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {skills.map((skill) => (
+                  <div
+                    key={skill.id}
+                    className="dark-surface dark-surface-hover rounded-xl p-4 transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center">
+                        <span className="text-xl">{skill.icon}</span>
+                      </div>
+                      <div className="flex items-center text-gray-500 text-xs">
+                        <Users className="w-3 h-3 mr-1" />
+                        <span>{skill.downloads}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center mb-2">
+                        <h4 className="text-sm font-medium text-white group-hover:text-green-400 transition-colors">{skill.name}</h4>
+                        <span className="ml-2 text-xs px-2 py-0.5 bg-green-600/20 text-green-400 rounded-full">{skill.category}</span>
+                      </div>
+                      <p className="text-gray-500 text-xs leading-relaxed">{skill.description}</p>
                     </div>
                   </div>
                 ))}
