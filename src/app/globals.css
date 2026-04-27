@@ -58,3 +58,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
   font-weight: 600;
 }
+
+.section-title {
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+  font-size: 42px;
+  line-height: 50.4px;
+  font-weight: 700;
+  letter-spacing: -0.84px;
+}
+
+.section-description {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 28.8px;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #999494;
+}

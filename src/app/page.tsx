@@ -344,12 +344,18 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState<FlowStep>("identity");
   const [selectedClient, setSelectedClient] = useState<OpenClawClient | null>(null);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleUserTypeSelect = (type: UserType) => {
-    setUserType(type);
     if (type === "new") {
-      setCurrentStep("comparison");
-    } else {
-      setCurrentStep("skillhub");
+      scrollToSection("tutorials");
+    } else if (type === "installed") {
+      scrollToSection("skillhub");
     }
   };
 
@@ -437,6 +443,10 @@ export default function Home() {
                   <Sparkles className="w-4 h-4 mr-2" />
                   Agent跑分
                 </button>
+                <button className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  AI模型大PK
+                </button>
               </div>
             </div>
           </div>
@@ -523,9 +533,9 @@ export default function Home() {
             </div>
 
             <div className="mt-16">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold mb-2">OpenClaw 部署客户端</h3>
-                <p className="text-gray-500 text-base">阿里、腾讯、智谱、火山各家小龙虾随意选择</p>
+              <div className="text-center mb-6 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">OpenClaw 部署客户端</h2>
+                <p className="section-description">阿里、腾讯、智谱、火山各家小龙虾随意选择</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {deploymentProducts.map((product) => (
@@ -559,9 +569,9 @@ export default function Home() {
             </div>
 
             <div className="mt-16">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold mb-2">新手入门</h3>
-                <p className="text-gray-500 text-base">7小时成为小龙虾高手</p>
+              <div id="tutorials" className="text-center mb-6 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">新手入门</h2>
+                <p className="section-description">7小时成为小龙虾高手</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {tutorialArticles.map((article) => (
@@ -592,9 +602,9 @@ export default function Home() {
             </div>
 
             <div className="mt-16">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold mb-2">SkillHub</h3>
-                <p className="text-gray-500 text-base">安装技能扩展小龙虾的能力</p>
+              <div id="skillhub" className="text-center mb-6 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">SkillHub</h2>
+                <p className="section-description">安装技能扩展小龙虾的能力</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {skills.map((skill) => (
@@ -620,6 +630,172 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <div className="text-center mb-8 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">用户好评</h2>
+                <p className="section-description">看看大家怎么说</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-violet-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👨‍💻</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">码农小张</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">自动整理代码文档、查开发资料，拓展性超强还能自定义技能，本地运行不占云端内存，太合心意了。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-green-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👩‍💼</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">行政小李</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">填表单、整理会议纪要、归档文件一键搞定，零门槛上手，再也不用对着电脑做重复操作了。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👨‍🎨</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">运营阿明</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">公司用飞书、私下用微信，两边都能发指令控电脑，远程搜运营素材超省心，终于不用天天加班了。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-pink-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👩‍💻</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">人事小王</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">做员工档案、整理考勤表比人工还细心，能直接操作电脑里的表格，不用反复导出导入。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-amber-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👨‍💻</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">开发阿杰</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">试过多款 AI 工具，Molili 是最适配国内开发者的，中文界面超友好，写脚本、整理日志超顺手。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-cyan-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👩‍💼</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">财务小陈</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">整理报销单、统计消费明细全交给 Molili，本地读写文件不用传云端，安全又高效。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-emerald-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👨‍💻</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">运维老周</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">远程监控电脑、整理运维日志，手机钉钉发指令就能操作，不用随时守在电脑前。</p>
+                </div>
+                <div className="dark-surface rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-rose-600/20 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-xl">👩‍💻</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-white">学生小美</h4>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed">上手毫无压力，微信发指令就能搜学习资料、整理笔记，备考党直接锁死！</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <div className="text-center mb-8 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">扫码加入微信群</h2>
+                <p className="section-description">有问题有人解答，想玩有人交流，想获得第一手AI资讯，就加群</p>
+              </div>
+              <div className="flex justify-center">
+                <div className="dark-surface rounded-2xl p-8 flex items-center justify-center">
+                  <div className="bg-white rounded-xl w-48 h-48 flex items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      <div className="text-4xl mb-2">📱</div>
+                      <p className="text-sm">微信群二维码</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16">
+              <div className="text-center mb-8 h-[224px] flex flex-col justify-center">
+                <h2 className="section-title mb-2">开始搭建你的AI Agent吧</h2>
+                <p className="section-description">选择适合您的AI Agent方案，体验 AI 带来的效率革命</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <button
+                  onClick={() => scrollToSection("tutorials")}
+                  className="group relative dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+                >
+                  <div className="flex items-center mb-5">
+                    <div className="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mr-5">
+                      <Sparkles className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-semibold">新手用户</h3>
+                      <p className="text-sm text-gray-500">刚刚接触 OpenClaw</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 mb-5 text-base leading-relaxed">
+                    浏览热门 OpenClaw 客户端，了解不同版本的功能对比，选择最适合您的版本开始体验。
+                  </p>
+                  <div className="flex items-center text-violet-400 font-medium">
+                    开始探索
+                    <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => scrollToSection("skillhub")}
+                  className="group relative dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+                >
+                  <div className="flex items-center mb-5">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mr-5">
+                      <User className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-semibold">已安装用户</h3>
+                      <p className="text-sm text-gray-500">已经在使用 OpenClaw</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 mb-5 text-base leading-relaxed">
+                    直接进入 SkillHub，浏览和安装各种智能技能，提升您的工作效率和创作能力。
+                  </p>
+                  <div className="flex items-center text-green-400 font-medium">
+                    进入 SkillHub
+                    <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
               </div>
             </div>
           </div>
