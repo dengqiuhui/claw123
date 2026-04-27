@@ -31,3 +31,30 @@ body {
     text-wrap: balance;
   }
 }
+
+.dark-gradient {
+  background: linear-gradient(135deg, #0a0a0f 0%, #141420 50%, #0a0a0f 100%);
+}
+
+.dark-surface {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-surface-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+}
+
+body {
+  font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+}

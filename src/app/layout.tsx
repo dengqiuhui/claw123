@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const outfit = Outfit({ 
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
   title: "OpenClaw - 用户流程",
@@ -15,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <body className={inter.className}>{children}</body>
+    <html lang="zh-CN" className={`${inter.variable} ${outfit.variable}`}>
+      <body className={`font-sans antialiased`}>{children}</body>
     </html>
   );
 }
