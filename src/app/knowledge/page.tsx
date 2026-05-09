@@ -1,8 +1,8 @@
 "use client";
 
-import { Sparkles, ChevronRight, BookOpen, Clock, ArrowLeft } from "lucide-react";
+import { Sparkles, ChevronRight, BookOpen, Clock, ArrowLeft, ArrowUp } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Article {
   id: string;
@@ -200,9 +200,80 @@ const categories: Category[] = [
   },
 ];
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-violet-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-110"
+    >
+      <ArrowUp className="w-5 h-5 text-white" />
+    </button>
+  );
+}
+
 export default function KnowledgePage() {
   const [activeTab, setActiveTab] = useState("newusers");
+  const [pageIndex, setPageIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const currentCategory = categories.find((c) => c.id === activeTab) || categories[0];
+  const articlesPerPage = 3;
+  const isNewUsersTab = activeTab === "newusers";
+
+  const totalPages = Math.ceil(currentCategory.articles.length / articlesPerPage);
+  const hasMore = pageIndex < totalPages - 1;
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setPageIndex(0);
+  };
+
+  const loadMore = () => {
+    if (pageIndex < totalPages - 1 && !loading) {
+      setLoading(true);
+      setTimeout(() => {
+        setPageIndex(pageIndex + 1);
+        setLoading(false);
+      }, 300);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isNewUsersTab || loading || !hasMore) return;
+      
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+      
+      if (scrollTop + clientHeight >= scrollHeight - 200) {
+        loadMore();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pageIndex, loading, hasMore, isNewUsersTab]);
+
+  const displayedArticles = isNewUsersTab 
+    ? currentCategory.articles 
+    : currentCategory.articles.slice(0, (pageIndex + 1) * articlesPerPage);
 
   return (
     <div className="min-h-screen dark-gradient text-white font-outfit">
@@ -225,7 +296,7 @@ export default function KnowledgePage() {
         </div>
       </nav>
 
-      <main className="max-w-6xl mx-auto px-4">
+      <main ref={containerRef} className="max-w-6xl mx-auto px-4">
         <section className="py-16 text-center">
           <div className="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-6 font-medium">
             <BookOpen className="w-4 h-4 mr-2" />
@@ -247,7 +318,7 @@ export default function KnowledgePage() {
                 {categories.map((category) => (
                   <button
                     key={category.id}
-                    onClick={() => setActiveTab(category.id)}
+                    onClick={() => handleTabChange(category.id)}
                     className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                       activeTab === category.id
                         ? "bg-gradient-to-r from-violet-600 to-purple-700 text-white shadow-lg"
@@ -261,9 +332,11 @@ export default function KnowledgePage() {
             </div>
 
             <div className="space-y-4 flex flex-col items-center">
-              {currentCategory.articles.map((article, index) => {
-                const isLastArticle = index === currentCategory.articles.length - 1;
-                if (isLastArticle) {
+              {displayedArticles.map((article, index) => {
+                const isLastArticle = index === displayedArticles.length - 1;
+                const isNewUsersLast = isNewUsersTab && isLastArticle;
+                
+                if (isNewUsersLast) {
                   return (
                     <div key={article.id} className="w-full max-w-[1200px]">
                       <div className="w-full mx-auto h-8 flex justify-center">
@@ -288,6 +361,7 @@ export default function KnowledgePage() {
                     </div>
                   );
                 }
+                
                 return (
                   <div key={article.id}>
                     <div
@@ -319,16 +393,46 @@ export default function KnowledgePage() {
                         </div>
                       </div>
                     </div>
-                    <div className="w-[1200px] mx-auto h-8 flex justify-center">
-                      <div className="w-0.5 h-full bg-gradient-to-b from-violet-600/50 to-transparent"></div>
-                    </div>
+                    {(!isLastArticle || (isNewUsersTab && !isLastArticle)) && (
+                      <div className="w-[1200px] mx-auto h-8 flex justify-center">
+                        <div className="w-0.5 h-full bg-gradient-to-b from-violet-600/50 to-transparent"></div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
+              
+              {!isNewUsersTab && hasMore && (
+                <div className="w-full max-w-[1200px] text-center py-8">
+                  {loading ? (
+                    <div className="inline-flex items-center px-6 py-3 bg-violet-600/20 text-violet-400 rounded-xl">
+                      <div className="animate-spin mr-2">
+                        <Clock className="w-5 h-5" />
+                      </div>
+                      加载中...
+                    </div>
+                  ) : (
+                    <button
+                      onClick={loadMore}
+                      className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-medium rounded-xl hover:from-violet-500 hover:to-purple-500 transition-all duration-200 shadow-lg hover:shadow-violet-500/25"
+                    >
+                      加载更多
+                      <ChevronRight className="w-5 h-5 ml-2" />
+                    </button>
+                  )}
+                </div>
+              )}
+              
+              {!isNewUsersTab && !hasMore && displayedArticles.length > 0 && (
+                <div className="w-full max-w-[1200px] text-center py-8">
+                  <p className="text-gray-500 text-sm">— 已加载全部内容 —</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
       </main>
+      <ScrollToTopButton />
     </div>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { Sparkles, ChevronRight, ArrowLeft, Clock, BookOpen } from "lucide-react";
+import { Sparkles, ChevronRight, ArrowLeft, Clock, BookOpen, ArrowUp } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 interface Tutorial {
   id: string;
@@ -70,6 +71,33 @@ const tutorials: Tutorial[] = [
     readTime: "8分钟",
   },
 ];
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-violet-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-violet-500/30 transition-all duration-300 hover:scale-110"
+    >
+      <ArrowUp className="w-5 h-5 text-white" />
+    </button>
+  );
+}
 
 export default function NewUsersPage() {
   return (
@@ -150,6 +178,7 @@ export default function NewUsersPage() {
           </div>
         </section>
       </main>
+      <ScrollToTopButton />
     </div>
   );
 }
