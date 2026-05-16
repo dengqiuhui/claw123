@@ -140,9 +140,10 @@ export default function NewUsersPage() {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-4">
               {tutorials.map((tutorial, index) => (
-                <div
+                <Link
                   key={tutorial.id}
-                  className="dark-surface dark-surface-hover rounded-2xl p-6 transition-all duration-300 cursor-pointer group"
+                  href={`/knowledge/article/${tutorial.id}`}
+                  className="dark-surface dark-surface-hover rounded-2xl p-6 transition-all duration-300 cursor-pointer group block"
                 >
                   <div className="flex items-start">
                     <div className="flex flex-col items-center mr-6">
@@ -172,7 +173,7 @@ export default function NewUsersPage() {
                   {index < tutorials.length - 1 && (
                     <div className="mt-4 ml-7 w-0.5 h-8 bg-gradient-to-b from-violet-600/50 to-transparent"></div>
                   )}
-                </div>
+                </Link>
               ))}
             </div>
           </div>

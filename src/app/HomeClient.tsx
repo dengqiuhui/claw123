@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Sparkles, ChevronRight, LayoutDashboard, BookOpen, Layers, ExternalLink, Users, Clock, User } from "lucide-react";
 
 interface DeploymentProduct {
@@ -389,9 +390,10 @@ export default function HomeClient() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {tutorialArticles.map((article) => (
-              <div
+              <Link
                 key={article.id}
-                className="dark-surface dark-surface-hover rounded-xl p-5 transition-all duration-300 cursor-pointer group"
+                href={`/knowledge/article/${article.id}`}
+                className="dark-surface dark-surface-hover rounded-xl p-5 transition-all duration-300 cursor-pointer group block"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center mr-3">
@@ -410,7 +412,7 @@ export default function HomeClient() {
                   <span>阅读文章</span>
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
