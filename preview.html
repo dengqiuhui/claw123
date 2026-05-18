@@ -1,36 +1,424 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw - 用户流程预览</title>
+    <title>OpenClaw - AI 智能助手平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+        }
+
+        .dark-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #111 30%, #1a0a2e 60%, #0a0a1a 100%);
+        }
+
+        .dark-surface {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .dark-surface-hover:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 80px rgba(139, 92, 246, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-description {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100">
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+
+<body class="dark-gradient text-white">
+    <nav class="border-b border-white/10 sticky top-0 z-50 bg-black/50 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-8">
-                    <h1 class="text-xl font-bold text-gray-900">OpenClaw</h1>
-                    <div class="hidden md:flex space-x-1">
-                        <button class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">OpenClaw 部署客户端</button>
-                        <button class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">SkillHub</button>
-                        <button class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">知识中心</button>
-                    </div>
+                <h1 class="text-2xl font-semibold tracking-tight">Openclaw</h1>
+                <div class="hidden md:flex items-center space-x-1">
+                    <button
+                        class="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        OpenClaw 部署客户端
+                    </button>
+                    <button
+                        class="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+                            <line x1="12" y1="22" x2="12" y2="15.5" />
+                        </svg>
+                        SkillHub
+                    </button>
+                    <button
+                        class="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                        </svg>
+                        知识中心
+                    </button>
+                    <button
+                        class="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                        </svg>
+                        Agent跑分
+                    </button>
+                    <button
+                        class="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                        </svg>
+                        AI模型大PK
+                    </button>
                 </div>
-                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">登录</button>
             </div>
         </div>
     </nav>
-    <div class="max-w-6xl mx-auto py-12 px-4">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">OpenClaw</h1>
-            <p class="text-lg text-gray-600">欢迎使用 OpenClaw 智能助手平台</p>
-        </div>
-        <div class="text-center">
-            <p class="text-gray-600">预览文件已更新！</p>
-            <p class="mt-4 text-blue-600">完整的预览效果请运行 Next.js 开发服务器查看。</p>
-        </div>
-    </div>
+
+    <main class="max-w-6xl mx-auto px-4">
+        <section class="py-32 text-center">
+            <div
+                class="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-8 font-medium">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                </svg>
+                AI 助手新时代
+            </div>
+            <h1 class="text-7xl md:text-8xl font-bold tracking-tighter mb-6 glow-text">OpenClaw</h1>
+            <p class="text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                真正能替你做事的 AI <br>
+                清理收件箱、发送邮件、管理日历、为你办理值机
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
+                <a href="#tutorials"
+                    class="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300 block">
+                    <div class="flex items-center mb-5">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mr-5">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">新手用户</h3>
+                            <p class="text-sm text-gray-500">刚刚接触 OpenClaw</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-5 text-base leading-relaxed">
+                        浏览热门 OpenClaw 客户端，了解不同版本的功能对比，选择最适合您的版本开始体验。
+                    </p>
+                    <div class="flex items-center text-violet-400 font-medium">
+                        开始探索
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="#skillhub"
+                    class="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300 block">
+                    <div class="flex items-center mb-5">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mr-5">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">已安装用户</h3>
+                            <p class="text-sm text-gray-500">已经在使用 OpenClaw</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-5 text-base leading-relaxed">
+                        直接进入 SkillHub，浏览和安装各种智能技能，提升您的工作效率和创作能力。
+                    </p>
+                    <div class="flex items-center text-green-400 font-medium">
+                        进入 SkillHub
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mt-8">
+            <div class="text-center mb-6 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">OpenClaw 部署客户端</h2>
+                <p class="section-description">阿里、腾讯、智谱、火山各家小龙虾随意选择</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="products"></div>
+        </section>
+
+        <section class="mt-16" id="tutorials">
+            <div class="text-center mb-6 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">新手入门</h2>
+                <p class="section-description">7小时成为小龙虾高手</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="tutorials-grid"></div>
+        </section>
+
+        <section class="mt-16" id="skillhub">
+            <div class="text-center mb-6 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">SkillHub</h2>
+                <p class="section-description">安装技能扩展小龙虾的能力</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="skills-grid"></div>
+        </section>
+
+        <section class="mt-16">
+            <div class="text-center mb-8 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">用户好评</h2>
+                <p class="section-description">看看大家怎么说</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="testimonials-grid"></div>
+        </section>
+
+        <section class="mt-16">
+            <div class="text-center mb-8 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">扫码加入微信群</h2>
+                <p class="section-description">有问题有人解答，想玩有人交流，想获得第一手AI资讯，就加群</p>
+            </div>
+            <div class="flex justify-center pb-8">
+                <div class="dark-surface rounded-2xl p-8 flex items-center justify-center">
+                    <div class="bg-white rounded-xl w-48 h-48 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <div class="text-4xl mb-2">📱</div>
+                            <p class="text-sm">微信群二维码</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16">
+            <div class="text-center mb-8 h-56 flex flex-col justify-center">
+                <h2 class="section-title mb-2">开始搭建你的AI Agent吧</h2>
+                <p class="section-description">选择适合您的AI Agent方案，体验 AI 带来的效率革命</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto pb-16">
+                <a href="#tutorials"
+                    class="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300 block">
+                    <div class="flex items-center mb-5">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mr-5">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">新手用户</h3>
+                            <p class="text-sm text-gray-500">刚刚接触 OpenClaw</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-5 text-base leading-relaxed">浏览热门 OpenClaw 客户端，了解不同版本的功能对比，选择最适合您的版本开始体验。
+                    </p>
+                    <div class="flex items-center text-violet-400 font-medium">开始探索 <svg class="w-5 h-5 ml-2"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg></div>
+                </a>
+                <a href="#skillhub"
+                    class="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300 block">
+                    <div class="flex items-center mb-5">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mr-5">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold">已安装用户</h3>
+                            <p class="text-sm text-gray-500">已经在使用 OpenClaw</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-5 text-base leading-relaxed">直接进入 SkillHub，浏览和安装各种智能技能，提升您的工作效率和创作能力。</p>
+                    <div class="flex items-center text-green-400 font-medium">进入 SkillHub <svg class="w-5 h-5 ml-2"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const products = [
+            { vendor: "腾讯", vendorLogo: "🐧", name: "QClaw（微信直连版）", description: "微信扫码直接启用，无需复杂安装，适合普通用户快速体验", url: "https://qclaw.qq.com", downloads: 52 },
+            { vendor: "腾讯", vendorLogo: "🐧", name: "WorkBuddy（腾讯龙虾）", description: "更偏向办公场景，支持接入企业微信、QQ、飞书", url: "https://www.codebuddy.cn/work/?from=claw123", downloads: 67 },
+            { vendor: "智谱（Zhipu AI）", vendorLogo: "🔮", name: "AutoClaw（澳龙）", description: "原生OpenClaw内核，主打飞书集成与浏览器自动化，支持Windows/macOS一键安装", url: "https://autoglm.zhipuai.cn/autoclaw/?from=claw123", downloads: 34 },
+            { vendor: "阿里", vendorLogo: "🐱", name: "QwenPaw", description: "阿里通义出品，开源 AI Agent 框架，支持本地/云端双模部署", url: "https://qwenpaw.agentscope.io/?from=claw123", downloads: 89 },
+            { vendor: "阿里", vendorLogo: "🐱", name: "CoPaw", description: "协作个人智能体工作站，基于 AgentScope 框架构建，支持钉钉/飞书/QQ 多渠道", url: "https://copaw.bot/zh/", downloads: 45 },
+            { vendor: "网易有道", vendorLogo: "🦞", name: "Lobster", description: "国内首个开源的桌面级AI智能体，支持手机、电脑双端互联", url: "https://lobsterai.youdao.com", downloads: 71 },
+            { vendor: "网易有道", vendorLogo: "🦞", name: "Lobster GitHub", description: "开源项目地址", url: "https://github.com/netease-youdao/LobsterAI", downloads: 23 },
+            { vendor: "百度", vendorLogo: "🔍", name: "DuClaw（百度智能云）", description: "OpenClaw零部署服务，无需选择镜像或部署云服务器", url: "https://cloud.baidu.com/product/duclaw.html", downloads: 58 },
+            { vendor: "字节跳动", vendorLogo: "🎵", name: "ArkClaw（火山引擎）", description: "基于OpenClaw架构的AI Agent工具，支持企业级部署。邀请码：WNL4CMPX", url: "https://volcengine.com/L/a_eJAIm4x74/", downloads: 41 },
+            { vendor: "稀宇科技（MiniMax）", vendorLogo: "🤖", name: "MaxClaw", description: "基于MiniMax大模型的OpenClaw实现，国产化 AI Agent 助手", url: "https://agent.minimax.io/max-claw/?from=claw123", downloads: 76 },
+            { vendor: "OpenClaw（开源社区）", vendorLogo: "🦞", name: "OpenClaw", description: "开源社区版，个人AI智能体，支持本地运行与 Skills 扩展", url: "https://openclaw.ai/", downloads: 95 },
+            { vendor: "Molili", vendorLogo: "🦞", name: "Molili Claw", description: "原生适配飞书/微信/钉钉国内办公生态", url: "https://molili.dangbei.com", downloads: 62 },
+        ];
+
+        const tutorials = [
+            { hour: 1, title: "第一个小时「选择最适合自己的小龙虾智能体」", description: "在这篇文章给用户列举头部6家（Qclaw、原生Openclaw、Workbuddy、QwenPaw、Copaw、Aekclaw）小龙虾的差异，让用户做出适合自己的选择", icon: "🎯" },
+            { hour: 2, title: "第二个小时「安装与首次启动」", description: "手把手教你完成选定的小龙虾智能体的安装过程，熟悉首次启动的界面和基础设置", icon: "📦" },
+            { hour: 3, title: "第三个小时「绑定即时通讯工具」", description: "将你的微信、企业微信、飞书、钉钉等 IM 工具与小龙虾连接，实现随时随地发指令", icon: "💬" },
+            { hour: 4, title: "第四个小时「完成第一个任务」", description: "通过实际案例教你如何给小龙虾下达第一个任务，体验 AI 帮你干活的魅力", icon: "🚀" },
+            { hour: 5, title: "第五个小时「配置记忆与偏好」", description: "让小龙虾学习你的工作习惯和偏好，建立个人知识库，越用越懂你", icon: "🧠" },
+            { hour: 6, title: "第六个小时「安装第一个技能」", description: "从 SkillHub 安装你的第一个技能，让小龙虾的能力得到扩展", icon: "⚡" },
+            { hour: 7, title: "恭喜毕业「成为小龙虾玩家」", description: "回顾六小时学习成果，开启你的 AI 智能体之旅，获得更多进阶技巧", icon: "🏆" },
+        ];
+
+        const skills = [
+            { name: "代码助手", description: "智能代码补全、审查与优化建议", category: "开发", icon: "⌨️", downloads: 856 },
+            { name: "文档生成", description: "自动生成 API 文档、技术文档与报告", category: "工具", icon: "📝", downloads: 723 },
+            { name: "数据分析", description: "快速分析数据趋势，生成可视化图表", category: "数据", icon: "📊", downloads: 634 },
+            { name: "翻译助手", description: "多语言翻译，支持中英日韩等20+语言", category: "语言", icon: "🌍", downloads: 589 },
+            { name: "会议纪要", description: "自动整理会议内容，提炼关键决策与待办", category: "办公", icon: "📋", downloads: 478 },
+            { name: "周报生成", description: "根据工作内容自动生成周报总结", category: "办公", icon: "📅", downloads: 412 },
+            { name: "邮件助手", description: "智能撰写、回复和整理邮件", category: "办公", icon: "📧", downloads: 367 },
+            { name: "网页搜索", description: "实时搜索网络信息，整理摘要答案", category: "工具", icon: "🔍", downloads: 534 },
+            { name: "文件整理", description: "自动分类整理文件夹，清理冗余文件", category: "工具", icon: "📁", downloads: 298 },
+            { name: "PPT 制作", description: "根据内容自动生成精美 PPT 演示文稿", category: "创作", icon: "🎨", downloads: 445 },
+            { name: "视频剪辑", description: "智能剪辑视频，自动生成字幕", category: "创作", icon: "🎬", downloads: 312 },
+            { name: "知识问答", description: "基于知识库回答专业领域问题", category: "工具", icon: "💡", downloads: 423 },
+        ];
+
+        const testimonials = [
+            { name: "码农小张", icon: "👨‍💻", content: "自动整理代码文档、查开发资料，拓展性超强还能自定义技能，本地运行不占云端内存，太合心意了。", color: "bg-violet-600/20" },
+            { name: "行政小李", icon: "👩‍💼", content: "填表单、整理会议纪要、归档文件一键搞定，零门槛上手，再也不用对着电脑做重复操作了。", color: "bg-green-600/20" },
+            { name: "运营阿明", icon: "👨‍🎨", content: "公司用飞书、私下用微信，两边都能发指令控电脑，远程搜运营素材超省心，终于不用天天加班了。", color: "bg-blue-600/20" },
+            { name: "人事小王", icon: "👩‍💻", content: "做员工档案、整理考勤表比人工还细心，能直接操作电脑里的表格，不用反复导出导入。", color: "bg-pink-600/20" },
+            { name: "开发阿杰", icon: "👨‍💻", content: "试过多款 AI 工具，Molili 是最适配国内开发者的，中文界面超友好，写脚本、整理日志超顺手。", color: "bg-amber-600/20" },
+            { name: "财务小陈", icon: "👩‍💼", content: "整理报销单、统计消费明细全交给 Molili，本地读写文件不用传云端，安全又高效。", color: "bg-cyan-600/20" },
+            { name: "运维老周", icon: "👨‍💻", content: "远程监控电脑、整理运维日志，手机钉钉发指令就能操作，不用随时守在电脑前。", color: "bg-emerald-600/20" },
+            { name: "学生小美", icon: "👩‍💻", content: "上手毫无压力，微信发指令就能搜学习资料、整理笔记，备考党直接锁死！", color: "bg-rose-600/20" },
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('products');
+            grid.innerHTML = products.map(p => `
+                <a href="${p.url || '#'}" target="_blank" rel="noopener noreferrer" class="block dark-surface dark-surface-hover rounded-xl p-4 transition-all duration-300 relative group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">${p.vendorLogo}</span>
+                            <span class="text-sm text-gray-400">${p.vendor}</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-xs">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            ${p.downloads}
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-base font-medium text-white">${p.name}</h4>
+                            <svg class="w-4 h-4 text-violet-400 group-hover:text-violet-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </div>
+                        <p class="text-gray-500 text-xs leading-relaxed">${p.description}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderTutorials() {
+            const grid = document.getElementById('tutorials-grid');
+            grid.innerHTML = tutorials.map(t => `
+                <a href="#" class="dark-surface dark-surface-hover rounded-xl p-5 transition-all duration-300 cursor-pointer group block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-xl">${t.icon}</span>
+                        </div>
+                        <div class="flex items-center text-violet-400 text-xs">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            第 ${t.hour} 小时
+                        </div>
+                    </div>
+                    <h4 class="text-base font-medium mb-2 text-white group-hover:text-violet-300 transition-colors">${t.title}</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">${t.description}</p>
+                    <div class="mt-4 flex items-center text-violet-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span>阅读文章</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderSkills() {
+            const grid = document.getElementById('skills-grid');
+            grid.innerHTML = skills.map(s => `
+                <div class="dark-surface dark-surface-hover rounded-xl p-4 transition-all duration-300 cursor-pointer group">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center">
+                            <span class="text-xl">${s.icon}</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-xs">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            ${s.downloads}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-2">
+                            <h4 class="text-sm font-medium text-white group-hover:text-green-400 transition-colors">${s.name}</h4>
+                            <span class="ml-2 text-xs px-2 py-0.5 bg-green-600/20 text-green-400 rounded-full">${s.category}</span>
+                        </div>
+                        <p class="text-gray-500 text-xs leading-relaxed">${s.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTestimonials() {
+            const grid = document.getElementById('testimonials-grid');
+            grid.innerHTML = testimonials.map(t => `
+                <div class="${t.color} rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-white/10">
+                            <span class="text-xl">${t.icon}</span>
+                        </div>
+                        <h4 class="text-sm font-medium text-white">${t.name}</h4>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">${t.content}</p>
+                </div>
+            `).join('');
+        }
+
+        renderProducts();
+        renderTutorials();
+        renderSkills();
+        renderTestimonials();
+
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const id = link.getAttribute('href').substring(1);
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
+
 </html>

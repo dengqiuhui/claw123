@@ -30,7 +30,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🐧",
     name: "WorkBuddy（腾讯龙虾）",
     description: "更偏向办公场景，支持接入企业微信、QQ、飞书",
-    url: "https://www.codebuddy.cn/work",
+    url: "https://www.codebuddy.cn/work/?from=claw123",
     downloads: 67,
   },
   {
@@ -39,7 +39,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🔮",
     name: "AutoClaw（澳龙）",
     description: "原生OpenClaw内核，主打飞书集成与浏览器自动化，支持Windows/macOS一键安装",
-    url: "https://autoglm.zhipuai.cn/autoclaw/",
+    url: "https://autoglm.zhipuai.cn/autoclaw/?from=claw123",
     downloads: 34,
   },
   {
@@ -48,7 +48,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🐱",
     name: "QwenPaw",
     description: "阿里通义出品，开源 AI Agent 框架，支持本地/云端双模部署",
-    url: "https://qwenpaw.agentscope.io/",
+    url: "https://qwenpaw.agentscope.io/?from=claw123",
     downloads: 89,
   },
   {
@@ -92,8 +92,8 @@ const deploymentProducts: DeploymentProduct[] = [
     vendor: "字节跳动",
     vendorLogo: "🎵",
     name: "ArkClaw（火山引擎）",
-    description: "基于OpenClaw架构的AI Agent工具，支持企业级部署",
-    url: "https://www.volcengine.com/product/arkclaw",
+    description: "基于OpenClaw架构的AI Agent工具，支持企业级部署。邀请码：WNL4CMPX",
+    url: "https://volcengine.com/L/a_eJAIm4x74/",
     downloads: 41,
   },
   {
@@ -102,7 +102,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🤖",
     name: "MaxClaw",
     description: "基于MiniMax大模型的OpenClaw实现，国产化 AI Agent 助手",
-    url: "https://agent.minimaxi.com/max-claw",
+    url: "https://agent.minimax.io/max-claw/?from=claw123",
     downloads: 76,
   },
   {
