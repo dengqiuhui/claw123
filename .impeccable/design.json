@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-18T14:58:00Z",
+  "title": "Design System: OpenClaw Terminal",
+  "extensions": {
+    "colorMeta": {
+      "terminal-violet": {
+        "role": "primary",
+        "displayName": "Terminal Violet",
+        "canonical": "oklch(0.55, 0.25, 290)",
+        "tonalRamp": [
+          "oklch(0.20, 0.15, 290)",
+          "oklch(0.30, 0.20, 290)",
+          "oklch(0.40, 0.23, 290)",
+          "oklch(0.50, 0.25, 290)",
+          "oklch(0.55, 0.25, 290)",
+          "oklch(0.65, 0.22, 290)",
+          "oklch(0.80, 0.15, 290)",
+          "oklch(0.92, 0.08, 290)"
+        ]
+      },
+      "terminal-violet-deep": {
+        "role": "primary-deep",
+        "displayName": "Terminal Violet Deep",
+        "canonical": "oklch(0.47, 0.24, 290)",
+        "tonalRamp": []
+      },
+      "terminal-violet-pale": {
+        "role": "primary-pale",
+        "displayName": "Terminal Violet Pale",
+        "canonical": "oklch(0.80, 0.15, 290)",
+        "tonalRamp": []
+      },
+      "deep-slate": {
+        "role": "neutral-bg",
+        "displayName": "Deep Slate",
+        "canonical": "oklch(0.12, 0.005, 290)",
+        "tonalRamp": [
+          "oklch(0.06, 0.004, 290)",
+          "oklch(0.10, 0.005, 290)",
+          "oklch(0.12, 0.005, 290)",
+          "oklch(0.15, 0.005, 290)",
+          "oklch(0.20, 0.005, 290)",
+          "oklch(0.30, 0.005, 290)",
+          "oklch(0.50, 0.005, 290)",
+          "oklch(0.70, 0.005, 290)"
+        ]
+      },
+      "raised-slate": {
+        "role": "neutral-surface",
+        "displayName": "Raised Slate",
+        "canonical": "oklch(0.15, 0.005, 290)",
+        "tonalRamp": []
+      },
+      "signal-green": {
+        "role": "secondary",
+        "displayName": "Signal Green",
+        "canonical": "oklch(0.55, 0.20, 145)",
+        "tonalRamp": [
+          "oklch(0.20, 0.12, 145)",
+          "oklch(0.30, 0.16, 145)",
+          "oklch(0.40, 0.18, 145)",
+          "oklch(0.50, 0.20, 145)",
+          "oklch(0.55, 0.20, 145)",
+          "oklch(0.65, 0.16, 145)",
+          "oklch(0.80, 0.10, 145)",
+          "oklch(0.92, 0.06, 145)"
+        ]
+      },
+      "warm-amber": {
+        "role": "tertiary",
+        "displayName": "Warm Amber",
+        "canonical": "oklch(0.75, 0.17, 85)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only. Outfit 700, violet glow text-shadow."
+      },
+      "section-title": {
+        "displayName": "Section Title",
+        "purpose": "Section anchors. Plus Jakarta Sans 700. Fixed 42px."
+      },
+      "heading": {
+        "displayName": "Heading",
+        "purpose": "Card titles, nav brand, article h2/h3. Outfit 600."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All paragraph text. Inter 400 with Chinese fallback stack."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Badges, nav items, metadata. Inter 500, 12px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "fab-glow",
+        "value": "0 4px 24px rgba(124, 58, 237, 0.3)",
+        "purpose": "Scroll-to-top FAB only. The single shadow in the entire system."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default for state transitions: hover backgrounds, text color changes."
+      },
+      {
+        "name": "duration-standard",
+        "value": "200ms",
+        "purpose": "Hover transitions on nav items, cards, chips."
+      },
+      {
+        "name": "duration-card",
+        "value": "300ms",
+        "purpose": "Card hover transitions: background and border opacity shifts."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gradient violet CTA. Rare; used on hero entry cards and knowledge center tabs.",
+      "html": "<button class=\"ds-btn-primary\">开始探索</button>",
+      "css": ".ds-btn-primary { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: #ffffff; padding: 10px 24px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; border: none; border-radius: 8px; cursor: pointer; transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #6d28d9; } .ds-btn-primary:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Nav Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Navigation bar link button. The default interactive element in the top nav.",
+      "html": "<button class=\"ds-btn-ghost\"><svg class=\"ds-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18\"/><path d=\"M9 21V9\"/></svg>知识中心</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #a1a1aa; padding: 8px 16px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 400; border: none; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-ghost:hover { background: rgba(255, 255, 255, 0.05); color: #ffffff; } .ds-icon { width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Accent Chip",
+      "kind": "chip",
+      "refersTo": "chip-accent",
+      "description": "Hero eyebrow and section indicator badge. Semi-transparent violet pill.",
+      "html": "<span class=\"ds-chip-accent\"><svg class=\"ds-icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z\"/></svg>AI 助手新时代</span>",
+      "css": ".ds-chip-accent { background: rgba(124, 58, 237, 0.2); color: #c4b5fd; padding: 8px 16px; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 9999px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Standard content card. Dark glass surface that lifts on hover via luminosity shift.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-header\">🐧<span class=\"ds-card-vendor\">腾讯</span></div><h3 class=\"ds-card-title\">QClaw（微信直连版）</h3><p class=\"ds-card-desc\">微信扫码直接启用，无需复杂安装，适合普通用户快速体验</p></div>",
+      "css": ".ds-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 16px; font-family: Inter, sans-serif; transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; } .ds-card:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); } .ds-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; } .ds-card-vendor { font-size: 14px; color: #a1a1aa; } .ds-card-title { font-family: Outfit, Inter, sans-serif; font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 4px; } .ds-card-desc { font-size: 12px; color: #71717a; margin: 0; line-height: 1.6; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-top",
+      "description": "Fixed top navigation with backdrop blur. The only blurred element in the system.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">Openclaw</span><div class=\"ds-nav-links\"><button class=\"ds-btn-ghost\">知识中心</button><button class=\"ds-btn-ghost\">SkillHub</button></div></nav>",
+      "css": ".ds-nav { position: sticky; top: 0; z-index: 50; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; } .ds-nav-brand { font-family: Outfit, Inter, sans-serif; font-size: 24px; font-weight: 600; color: #ffffff; letter-spacing: -0.01em; } .ds-nav-links { display: flex; gap: 4px; }"
+    },
+    {
+      "name": "Tab Button",
+      "kind": "button",
+      "refersTo": "button-tab",
+      "description": "Knowledge center category tab. Active state uses gradient; inactive is ghost.",
+      "html": "<div class=\"ds-tab-group\"><button class=\"ds-tab ds-tab-active\">新手入门</button><button class=\"ds-tab\">AI Agent 基础知识</button><button class=\"ds-tab\">技能教程</button></div>",
+      "css": ".ds-tab-group { display: inline-flex; gap: 4px; padding: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; } .ds-tab { padding: 10px 24px; border-radius: 8px; border: none; background: transparent; color: #a1a1aa; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-tab:hover { color: #ffffff; background: rgba(255, 255, 255, 0.05); } .ds-tab-active { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: #ffffff; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3); } .ds-tab-active:hover { background: #6d28d9; }"
+    },
+    {
+      "name": "FAB Scroll-to-Top",
+      "kind": "custom",
+      "refersTo": "button-fab",
+      "description": "Floating action button for scroll-to-top. The only element with a real shadow and scale animation.",
+      "html": "<button class=\"ds-fab\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\"><path d=\"M12 19V5\"/><path d=\"M5 12l7-7 7 7\"/></svg></button>",
+      "css": ".ds-fab { position: fixed; bottom: 32px; right: 32px; z-index: 50; width: 48px; height: 48px; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: #ffffff; border: none; border-radius: 50%; box-shadow: 0 4px 24px rgba(124, 58, 237, 0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-fab:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4); } .ds-fab:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Title Block",
+      "kind": "custom",
+      "refersTo": "section-title",
+      "description": "Section heading pair: Plus Jakarta Sans title + Inter description. The fixed 42px anchor.",
+      "html": "<div class=\"ds-section-head\"><h2 class=\"ds-section-title\">OpenClaw 部署客户端</h2><p class=\"ds-section-desc\">阿里、腾讯、智谱、火山各家小龙虾随意选择</p></div>",
+      "css": ".ds-section-head { text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 224px; } .ds-section-title { font-family: 'Plus Jakarta Sans', Outfit, sans-serif; font-size: 42px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; color: #ffffff; margin: 0 0 8px; } .ds-section-desc { font-family: Inter, sans-serif; font-size: 18px; line-height: 1.6; font-weight: 400; color: #999494; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Terminal",
+    "overview": "A dark, type-driven design system for an AI agent onboarding tool. The aesthetic borrows from developer terminals — information-dense, monospace-adjacent rhythm, surfaces that feel like they're printed on dark glass. Nothing ornamental. Every element justifies its existence by what it communicates, not how it decorates. The system explicitly rejects 赛博朋克和霓虹灯炫技审美. No electric blues, no glowing cyan borders, no scan-line overlays. This is the calm, competent terminal of a seasoned engineer, not a Hollywood hacker screen.",
+    "keyCharacteristics": [
+      "Dark-first, single-accent color strategy (violet ≤15% surface)",
+      "Outfit for display weight, Inter for reading comfort, Plus Jakarta Sans for section anchoring",
+      "Semi-transparent surface layers that stack without shadows",
+      "Touch feedback via luminosity shift, not scale or shadow",
+      "Information architecture biased toward comparison: tables, grids, side-by-side cards",
+      "Mobile rhythm: the same density at smaller breakpoints, no desktop-only layouts"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Terminal Violet is used on ≤15% of any given screen. Its rarity is the point.",
+        "section": "colors"
+      },
+      {
+        "name": "The Luminosity-Only Surface Rule",
+        "body": "Surfaces distinguish by luminosity shift (3% → 6% → 10% white overlay). No shadows, no borders >1px, no blur on cards. Hover is a brightness step, not movement.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed-Anchor Rule",
+        "body": "Section titles are 42px fixed. They don't scale with viewport. The scroll hits the same visual weight at every boundary.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. If an element needs to feel lifted, shift luminosity — don't add shadow. Shadows reserved for FAB only.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use luminosity steps (3% → 6% → 10% white overlay) to distinguish surfaces",
+      "Cap Terminal Violet at ≤15% of any screen surface",
+      "Use the fixed 42px section title as the scroll rhythm anchor",
+      "Provide touch feedback via color shift, not scale or shadow (FAB is the only exception)",
+      "Stack cards into grids that collapse cleanly to single-column on mobile",
+      "Use 1px border-white/10 as the universal separator — never a colored border accent",
+      "Run the same information density on mobile; shrink padding, not content"
+    ],
+    "donts": [
+      "Use 赛博朋克/霓虹灯式风格. No electric blues, no cyan borders, no scan-line effects",
+      "Use gradient text (background-clip: text)",
+      "Use glassmorphism or blur on content surfaces. Nav blur is the only one",
+      "Use side-stripe borders (border-left > 1px as accent)",
+      "Use nested cards. One card per piece of information",
+      "Use modal dialogs as the first interaction pattern",
+      "Add shadows to cards. Surfaces lift via luminosity, not drop-shadow",
+      "Use the violet glow text-shadow on anything except the hero headline",
+      "Animate layout properties. Transitions target background-color, color, opacity only",
+      "Hide content behind desktop-only breakpoints. Core flows work on mobile"
+    ]
+  }
+}

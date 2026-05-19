@@ -21,7 +21,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🐧",
     name: "QClaw（微信直连版）",
     description: "微信扫码直接启用，无需复杂安装，适合普通用户快速体验",
-    url: "https://qclaw.qq.com",
+    url: "https://qclaw.qq.com/?from=claw123",
     downloads: 52,
   },
   {
@@ -66,7 +66,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🦞",
     name: "Lobster",
     description: "国内首个开源的桌面级AI智能体，支持手机、电脑双端互联",
-    url: "https://lobsterai.youdao.com",
+    url: "https://lobsterai.youdao.com/?from=claw123",
     downloads: 71,
   },
   {
@@ -84,7 +84,7 @@ const deploymentProducts: DeploymentProduct[] = [
     vendorLogo: "🔍",
     name: "DuClaw（百度智能云）",
     description: "OpenClaw零部署服务，无需选择镜像或部署云服务器",
-    url: "https://cloud.baidu.com/product/duclaw.html",
+    url: "https://cloud.baidu.com/product/du.html",
     downloads: 58,
   },
   {
@@ -210,14 +210,14 @@ const skills: Skill[] = [
 ];
 
 const testimonials = [
-  { name: "码农小张", icon: "👨‍💻", content: "自动整理代码文档、查开发资料，拓展性超强还能自定义技能，本地运行不占云端内存，太合心意了。", color: "bg-violet-600/20" },
-  { name: "行政小李", icon: "👩‍💼", content: "填表单、整理会议纪要、归档文件一键搞定，零门槛上手，再也不用对着电脑做重复操作了。", color: "bg-green-600/20" },
-  { name: "运营阿明", icon: "👨‍🎨", content: "公司用飞书、私下用微信，两边都能发指令控电脑，远程搜运营素材超省心，终于不用天天加班了。", color: "bg-blue-600/20" },
-  { name: "人事小王", icon: "👩‍💻", content: "做员工档案、整理考勤表比人工还细心，能直接操作电脑里的表格，不用反复导出导入。", color: "bg-pink-600/20" },
-  { name: "开发阿杰", icon: "👨‍💻", content: "试过多款 AI 工具，Molili 是最适配国内开发者的，中文界面超友好，写脚本、整理日志超顺手。", color: "bg-amber-600/20" },
-  { name: "财务小陈", icon: "👩‍💼", content: "整理报销单、统计消费明细全交给 Molili，本地读写文件不用传云端，安全又高效。", color: "bg-cyan-600/20" },
-  { name: "运维老周", icon: "👨‍💻", content: "远程监控电脑、整理运维日志，手机钉钉发指令就能操作，不用随时守在电脑前。", color: "bg-emerald-600/20" },
-  { name: "学生小美", icon: "👩‍💻", content: "上手毫无压力，微信发指令就能搜学习资料、整理笔记，备考党直接锁死！", color: "bg-rose-600/20" },
+  { name: "码农小张", icon: "👨‍💻", content: "自动整理代码文档、查开发资料，拓展性超强还能自定义技能，本地运行不占云端内存，太合心意了。" },
+  { name: "行政小李", icon: "👩‍💼", content: "填表单、整理会议纪要、归档文件一键搞定，零门槛上手，再也不用对着电脑做重复操作了。" },
+  { name: "运营阿明", icon: "👨‍🎨", content: "公司用飞书、私下用微信，两边都能发指令控电脑，远程搜运营素材超省心，终于不用天天加班了。" },
+  { name: "人事小王", icon: "👩‍💻", content: "做员工档案、整理考勤表比人工还细心，能直接操作电脑里的表格，不用反复导出导入。" },
+  { name: "开发阿杰", icon: "👨‍💻", content: "试过多款 AI 工具，Molili 是最适配国内开发者的，中文界面超友好，写脚本、整理日志超顺手。" },
+  { name: "财务小陈", icon: "👩‍💼", content: "整理报销单、统计消费明细全交给 Molili，本地读写文件不用传云端，安全又高效。" },
+  { name: "运维老周", icon: "👨‍💻", content: "远程监控电脑、整理运维日志，手机钉钉发指令就能操作，不用随时守在电脑前。" },
+  { name: "学生小美", icon: "👩‍💻", content: "上手毫无压力，微信发指令就能搜学习资料、整理笔记，备考党直接锁死！" },
 ];
 
 const scrollToSection = (id: string) => {
@@ -456,9 +456,9 @@ export default function HomeClient() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className={`${t.color} rounded-xl p-6`}>
+              <div key={i} className="dark-surface rounded-xl p-5 border-t-2 border-violet-500/40">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-white/10">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-white/5">
                     <span className="text-xl">{t.icon}</span>
                   </div>
                   <h4 className="text-sm font-medium text-white">{t.name}</h4>
