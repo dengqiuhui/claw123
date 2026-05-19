@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.400.0",
     "marked": "^18.0.3",

@@ -275,14 +275,14 @@ export default function HomeClient() {
                 <LayoutDashboard className="w-4 h-4 mr-2" />
                 OpenClaw 部署客户端
               </button>
-              <button className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+              <Link href="/skillhub" className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
                 <Layers className="w-4 h-4 mr-2" />
                 SkillHub
-              </button>
-              <button className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
+              </Link>
+              <Link href="/knowledge" className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
                 <BookOpen className="w-4 h-4 mr-2" />
                 知识中心
-              </button>
+              </Link>
               <button className="px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center text-sm">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Agent跑分
@@ -335,8 +335,8 @@ export default function HomeClient() {
                 <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </button>
-            <button
-              onClick={() => scrollToSection("skillhub")}
+            <Link
+              href="/skillhub"
               className="dark-surface dark-surface-hover rounded-xl p-6 text-left transition-all duration-300 group"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -355,7 +355,7 @@ export default function HomeClient() {
                 进入 SkillHub
                 <ChevronRight className="w-4 h-4 ml-1" />
               </div>
-            </button>
+            </Link>
           </div>
         </section>
 
