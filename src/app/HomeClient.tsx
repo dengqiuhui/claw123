@@ -243,16 +243,22 @@ export default function HomeClient() {
           </div>
         </nav>
         <main className="max-w-6xl mx-auto px-4">
-          <section className="py-32 text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-8 font-medium">
+          <section className="py-20 text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-6 font-medium">
               <Sparkles className="w-4 h-4 mr-2" />
-              AI 助手新时代
+              选一个小龙虾，开始干活
             </div>
-            <h1 className="text-7xl md:text-8xl font-bold tracking-tighter mb-6 glow-text">OpenClaw</h1>
-            <p className="text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              真正能替你做事的 AI <br />
-              清理收件箱、发送邮件、管理日历、为你办理值机
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tighter mb-4 glow-text">OpenClaw</h1>
+            <p className="text-lg text-gray-400 max-w-5xl mx-auto leading-relaxed mb-6">
+              真正能替你做事的 AI，清理收件箱、发送邮件、管理日历、为你办理值机
             </p>
+            <div className="flex items-center justify-center gap-8 text-sm text-gray-500 mb-6">
+              <span>12 个客户端</span>
+              <span className="w-px h-4 bg-white/10" />
+              <span>7 小时教程</span>
+              <span className="w-px h-4 bg-white/10" />
+              <span>50+ 技能</span>
+            </div>
           </section>
         </main>
       </div>
@@ -291,57 +297,63 @@ export default function HomeClient() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-4">
-        <section className="py-32 text-center">
-          <div className="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-8 font-medium">
+        <section className="py-20 text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-violet-600/20 border border-violet-500/30 rounded-full text-sm text-violet-300 mb-6 font-medium">
             <Sparkles className="w-4 h-4 mr-2" />
-            AI 助手新时代
+            选一个小龙虾，开始干活
           </div>
-          <h1 className="text-7xl md:text-8xl font-bold tracking-tighter mb-6 glow-text">OpenClaw</h1>
-          <p className="text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            真正能替你做事的 AI <br />
-            清理收件箱、发送邮件、管理日历、为你办理值机
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tighter mb-4 glow-text">OpenClaw</h1>
+          <p className="text-lg text-gray-400 max-w-5xl mx-auto leading-relaxed mb-6">
+            真正能替你做事的 AI，清理收件箱、发送邮件、管理日历、为你办理值机
           </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
+          <div className="flex items-center justify-center gap-8 text-sm text-gray-500 mb-8">
+            <span>12 个客户端</span>
+            <span className="w-px h-4 bg-white/10" />
+            <span>7 小时教程</span>
+            <span className="w-px h-4 bg-white/10" />
+            <span>50+ 技能</span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
             <button
               onClick={() => scrollToSection("tutorials")}
-              className="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+              className="dark-surface dark-surface-hover rounded-xl p-6 text-left transition-all duration-300 group"
             >
-              <div className="flex items-center mb-5">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-600 to-purple-700 rounded-xl flex items-center justify-center mr-5">
-                  <Sparkles className="w-8 h-8" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-violet-600/20 border border-violet-500/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-5 h-5 text-violet-400" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold">新手用户</h3>
-                  <p className="text-sm text-gray-500">刚刚接触 OpenClaw</p>
+                  <h3 className="text-base font-semibold">新手用户</h3>
+                  <p className="text-xs text-gray-500">刚刚接触 OpenClaw</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-5 text-base leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 浏览热门 OpenClaw 客户端，了解不同版本的功能对比，选择最适合您的版本开始体验。
               </p>
-              <div className="flex items-center text-violet-400 font-medium">
+              <div className="mt-3 flex items-center text-violet-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 开始探索
-                <ChevronRight className="w-5 h-5 ml-2" />
+                <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </button>
             <button
               onClick={() => scrollToSection("skillhub")}
-              className="dark-surface dark-surface-hover rounded-2xl p-8 text-left transition-all duration-300"
+              className="dark-surface dark-surface-hover rounded-xl p-6 text-left transition-all duration-300 group"
             >
-              <div className="flex items-center mb-5">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center mr-5">
-                  <User className="w-8 h-8" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-green-600/20 border border-green-500/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <User className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold">已安装用户</h3>
-                  <p className="text-sm text-gray-500">已经在使用 OpenClaw</p>
+                  <h3 className="text-base font-semibold">已安装用户</h3>
+                  <p className="text-xs text-gray-500">已经在使用 OpenClaw</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-5 text-base leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 直接进入 SkillHub，浏览和安装各种智能技能，提升您的工作效率和创作能力。
               </p>
-              <div className="flex items-center text-green-400 font-medium">
+              <div className="mt-3 flex items-center text-violet-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 进入 SkillHub
-                <ChevronRight className="w-5 h-5 ml-2" />
+                <ChevronRight className="w-4 h-4 ml-1" />
               </div>
             </button>
           </div>
